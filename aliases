@@ -1,0 +1,71 @@
+#alias vi='vim'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias prettyjson='python -mjson.tool'
+
+alias gs='git status '
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias gco='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias gpl='git pull'
+alias gpu='git push'
+alias gt='git stash'
+alias got='git '
+alias get='git '
+alias gdt='git difftool'
+
+
+function gitretag() {
+   git tag -d $1 && git push --delete origin $1 && git tag $1 && git push --tags
+}
+
+alias upgrade='sudo apt-get update && sudo apt-get upgrade && sudo apt-get clean'
+
+extract () {
+    if [ -f '$1' ] ; then
+      case '$1' in
+        *.tar.bz2)   tar xjf '$1'     ;;
+        *.tar.gz)    tar xzf '$1'     ;;
+        *.bz2)       bunzip2 '$1'     ;;
+        *.rar)       unrar e '$1'     ;;
+        *.gz)        gunzip '$1'      ;;
+        *.tar)       tar xf '$1'      ;;
+        *.tbz2)      tar xjf '$1'     ;;
+        *.tgz)       tar xzf '$1'     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress '$1'  ;;
+        *.7z)        7z x '$1'        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+
+function mcd() {
+  mkdir -p "$1" && cd "$1";
+}
+
+
+alias tm='ps -ef | grep'
+
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+alias c='clear'
+
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+
+alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
+alias fairyfail='ssh morgan@fairyfail.fr.cr -p 33254'

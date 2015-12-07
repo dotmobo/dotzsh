@@ -1,0 +1,4 @@
+setopt autopushd
+setopt extendedglob
+setopt interactivecomments
+setopt braceccl
