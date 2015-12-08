@@ -4,8 +4,10 @@ compinit
 promptinit
 colors
 PROMPT="%{$fg[cyan]%}%n@%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%# "
-
 source ~/.zsh/rprompt
+
+# History
+source ~/.zsh/history
 
 # Complétion 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
