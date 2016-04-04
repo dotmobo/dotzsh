@@ -31,6 +31,8 @@ fi
 # vi mode
 #bindkey -v
 #bindkey '^R' history-incremental-search-backward
+# emacs moed
+bindkey -e
 
 # term with 256 color
 if [ -e /lib/terminfo/x/xterm-256color ]; then
@@ -92,4 +94,11 @@ export PATH=$PATH:$HOME/.cabal/bin
 #Rakudo perl 6
 export PATH=~/.rakudobrew/bin:$PATH
 
+# Killall
+zstyle ':completion:*:processes' command 'ps -ax'
+zstyle ':completion:*:processes-names' command 'ps -aeo comm='
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:killall:*:processes-names' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:*:killall:*' menu yes select
 
