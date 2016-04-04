@@ -70,8 +70,7 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias gifcast='byzanz-record --duration=15 --x=200 --y=300 --width=700 --height=400 out.gif'
 
 # aliases for Tmux
-alias tmux='tmux -2'
 alias ta='tmux attach -t'
-alias tnew='tmux new -s'
-alias tls='tmux ls'
-alias tkill='tmux kill-session -t'
+alias tn='tmux new -s'
+alias tl='tmux ls'
+alias tk='tmux kill-session -t'
