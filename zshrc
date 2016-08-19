@@ -13,7 +13,7 @@ source ~/.zsh/history
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 
 # User configuration
-export LANG=fr_FR.UTF-9
+export LANG=fr_FR.UTF-8
 export EDITOR='nvim'
 
 # enable color support of ls and also add handy aliases
@@ -60,7 +60,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 . ~/.zsh/django_completion
 
 # Perl
-export PERL5LIB=/home/morgan/perl5/lib/perl5/
+#export PERL5LIB=/home/morgan/perl5/lib/perl5/
 
 # GO
 export GOPATH=~/golang
@@ -102,3 +102,10 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:*:killall:*:processes-names' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:killall:*' menu yes select
 
+# Android
+export ANDROID_HOME=~/Android/Sdk
+export PATH=~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}
+
+# Rust
+export RUST_SRC_PATH="/usr/local/src/rustc-1.9.0/src"
+export PATH=~/.cargo/bin:${PATH}
