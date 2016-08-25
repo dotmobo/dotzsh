@@ -31,14 +31,12 @@ fi
 # vi mode
 #bindkey -v
 #bindkey '^R' history-incremental-search-backward
-# emacs moed
-bindkey -e
+# emacs mode
+#bindkey -e
 
-# term with 256 color
-if [ -e /lib/terminfo/x/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm'
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
 fi
 
 # Aliases
