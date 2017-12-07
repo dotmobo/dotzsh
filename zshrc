@@ -14,7 +14,7 @@ zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:
 
 # User configuration
 export LANG=fr_FR.UTF-8
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -28,25 +28,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# vi mode
-#bindkey -v
-#bindkey '^R' history-incremental-search-backward
-# emacs mode
-#bindkey -e
-
-if [[ $TERM == xterm-termite ]]; then
-  . /etc/profile.d/vte.sh
-  __vte_osc7
-fi
-
 # Aliases
 if [ -f ~/.zsh/aliases ]; then
     . ~/.zsh/aliases
 fi
-
-# ORACLE CLIENT
-export ORACLE_HOME=/home/morgan/APPLICATIONS/ARC/instantclient_11_2
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
 
 # VIRTUALENV PYTHON
 export WORKON_HOME=~/.virtualenvs/
@@ -54,56 +39,10 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source /usr/local/bin/virtualenvwrapper.sh
 
-# Completion django
-. ~/.zsh/django_completion
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/morgan/.sdkman"
+[[ -s "/home/morgan/.sdkman/bin/sdkman-init.sh" ]] && source "/home/morgan/.sdkman/bin/sdkman-init.sh"
 
-# Perl
-#export PERL5LIB=/home/morgan/perl5/lib/perl5/
-
-# GO
-export GOPATH=~/golang
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-
-# SSH ADD
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add < /dev/null;
-}
-
-# Source SSH settings, if applicable
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
-
-#HASKELL CABAL
-export PATH=$PATH:$HOME/.cabal/bin
-
-#Rakudo perl 6
-export PATH=~/.rakudobrew/bin:$PATH
-
-# Killall
-zstyle ':completion:*:processes' command 'ps -ax'
-zstyle ':completion:*:processes-names' command 'ps -aeo comm='
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:*:killall:*:processes-names' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:*:killall:*' menu yes select
-
-# Android
-export ANDROID_HOME=~/Android/Sdk
-export PATH=~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}
-
-# Rust
-export RUST_SRC_PATH="/usr/local/src/rustc-1.9.0/src"
-export PATH=~/.cargo/bin:${PATH}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -74,5 +74,3 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
-
-alias bfg='java -jar ~/Logiciels/bfg-1.12.12.jar'
