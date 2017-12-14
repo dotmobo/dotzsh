@@ -74,3 +74,6 @@ alias ta='tmux attach -t'
 alias tn='tmux new -s'
 alias tl='tmux ls'
 alias tk='tmux kill-session -t'
+
+# Swagger
+alias swagger-codegen="java -jar ~/Logiciels/swagger-codegen-cli.jar"
