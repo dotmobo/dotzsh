@@ -9,6 +9,7 @@ source ~/.zsh/rprompt
 # History
 source ~/.zsh/history
 
+
 # Complétion 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
 
@@ -92,3 +93,18 @@ _ng_completion () {
 
 compctl -K _ng_completion ng
 ###-end-ng-completion###
+
+# Android
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools/bin/:$ANDROID_HOME/emulator/
+
+# Plugin manager
+source ~/.zsh/antigen.zsh
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen apply
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
